@@ -1,0 +1,10 @@
+<button routerLink="/add">to add customer page</button>
+<br><br><br>
+
+<div *ngFor="let cust of customer">
+    {{cust | json}}
+<button (click)="onDelete(cust.id)">delete</button>
+<button [routerLink]="['/edit', cust.id]">update</button>
+</div>
+<br><br>
+<button (click)="onAdd(mockJsonAdd)">add quick customer</button>

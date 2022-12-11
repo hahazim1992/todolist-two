@@ -1,0 +1,16 @@
+{
+  "customer": [
+    {
+      "id": 1,
+      "name": "hazim",
+      "gender": "male",
+      "dob": "17/07/1992"
+    },
+    {
+      "id": 2,
+      "name": "adina",
+      "gender": "female",
+      "dob": "10/09/1998"
+    }
+  ]
+}

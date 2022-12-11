@@ -1,0 +1,19 @@
+<button routerLink="/">back to home</button>
+<br><br>
+form: status {{formCustomer.status}}
+
+
+<form [formGroup]="formCustomer" (ngSubmit)="onSubmit(formCustomer.value)">
+    <div>
+        <h5>name</h5>
+        <input type="text" formControlName="name">
+
+        <h5>gender</h5>
+        <input type="text" formControlName="gender">
+
+        <h5>dob</h5>
+        <input type="text" formControlName="dob">
+    </div>
+
+    <button>{{buttonLabel}}</button>
+</form>

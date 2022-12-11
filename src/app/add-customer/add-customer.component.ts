@@ -53,6 +53,7 @@ export class AddCustomerComponent implements OnInit {
     else {
       this.updateCustomer(this.activatedRoute.snapshot.url[1].path, data);
       // this.router.navigate()
+      // testcommit2
     }  
   }
 }

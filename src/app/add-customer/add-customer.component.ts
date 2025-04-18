@@ -43,7 +43,9 @@ export class AddCustomerComponent implements OnInit {
   }
 
   updateCustomer(id: any, data: any) {
-    this.customerService.updateCustomer(id, data).subscribe((x) => this.customer = x);
+    this.customerService.updateCustomer(id, data).subscribe(() => {
+      this.router.navigate(['/']); // Navigate back to the home page after updating
+    });
   }
 
   onSubmit(data: any) {

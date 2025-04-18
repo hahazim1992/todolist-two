@@ -40,8 +40,10 @@ export class HomeComponent implements OnInit {
   }
 
   deleteCustomer(id: any) {
-    this.customerService.deleteCustomer(id).subscribe(() => this.customer.filter(() => this.customer.id != this.customer.id));
-    window.location.reload();
+    this.customerService.deleteCustomer(id).subscribe(() => {
+      // Update the list of customers after deleting
+      this.customer = this.customer.filter((cust: any) => cust.id !== id);
+    });
   }
 
   //quick add cust

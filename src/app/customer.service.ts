@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
 
-  url = "http://localhost:3000/customer"
+  url = "https://my-app-r79i.onrender.com/customer";
 
-  constructor( private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   getCustomer() {
     return this.httpClient.get(this.url);
@@ -19,7 +19,7 @@ export class CustomerService {
   }
 
   deleteCustomer(id: any) {
-    return this.httpClient.delete(`${this.url}/${id}`)
+    return this.httpClient.delete(`${this.url}/${id}`);
   }
 
   updateCustomer(id: any, data: any) {
@@ -27,6 +27,6 @@ export class CustomerService {
   }
 
   getSingleCustomer(id: any) {
-    return this.httpClient.get(`${this.url}/${id}`)
+    return this.httpClient.get(`${this.url}/${id}`);
   }
 }

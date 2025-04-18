@@ -1,19 +1,31 @@
-<button routerLink="/">back to home</button>
-<br><br>
-form: status {{formCustomer.status}}
+<mat-card>
+  <mat-card-title>{{ buttonLabel === 'add' ? 'Add Customer' : 'Edit Customer' }}</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="formCustomer" (ngSubmit)="onSubmit(formCustomer.value)">
+      
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" placeholder="Enter name" />
+      </mat-form-field>
 
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Gender</mat-label>
+        <input matInput formControlName="gender" placeholder="Enter gender" />
+      </mat-form-field>
 
-<form [formGroup]="formCustomer" (ngSubmit)="onSubmit(formCustomer.value)">
-    <div>
-        <h5>name</h5>
-        <input type="text" formControlName="name">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput formControlName="dob" placeholder="dd/mm/yyyy" />
+      </mat-form-field>
 
-        <h5>gender</h5>
-        <input type="text" formControlName="gender">
-
-        <h5>dob</h5>
-        <input type="text" formControlName="dob">
-    </div>
-
-    <button>{{buttonLabel}}</button>
-</form>
+      <div class="form-actions">
+        <button mat-raised-button color="primary" type="submit">
+          {{ buttonLabel | titlecase }} Customer
+        </button>
+        <button mat-stroked-button color="warn" routerLink="/">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

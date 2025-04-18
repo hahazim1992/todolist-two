@@ -35,14 +35,14 @@ export class HomeComponent implements OnInit {
   }
   
   addCustomer(data: any) {
-    this.customerService.addCustomer(data).subscribe((x) => this.customer.push(x));
-    window.location.reload();
+    this.customerService.addCustomer(data).subscribe(() => {
+      this.getCustomer(); // Refresh the list after adding
+    });
   }
 
   deleteCustomer(id: any) {
     this.customerService.deleteCustomer(id).subscribe(() => {
-      // Update the list of customers after deleting
-      this.customer = this.customer.filter((cust: any) => cust.id !== id);
+      this.getCustomer(); // Refresh the list after deleting
     });
   }
 

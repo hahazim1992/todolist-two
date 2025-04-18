@@ -1,10 +1,31 @@
-<button routerLink="/add">to add customer page</button>
-<br><br><br>
+<mat-toolbar color="primary">
+  <span>Customer List</span>
+  <span class="spacer"></span>
+  <button mat-raised-button color="accent" routerLink="/add">Add Customer</button>
+</mat-toolbar>
 
-<div *ngFor="let cust of customer">
-    {{cust | json}}
-<button (click)="onDelete(cust.id)">delete</button>
-<button [routerLink]="['/edit', cust.id]">update</button>
+<div style="padding: 20px;">
+  <button mat-stroked-button color="primary" (click)="onAdd(mockJsonAdd)">
+    Add Quick Customer
+  </button>
+
+  <mat-divider></mat-divider>
+
+  <div *ngFor="let cust of customer" style="margin-top: 20px;">
+    <mat-card>
+      <mat-card-title>{{ cust.name }}</mat-card-title>
+      <mat-card-subtitle>{{ cust.gender }} | {{ cust.dob }}</mat-card-subtitle>
+      <mat-card-content>
+        <pre>{{ cust | json }}</pre>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="warn" (click)="onDelete(cust.id)">
+          <mat-icon>delete</mat-icon> Delete
+        </button>
+        <button mat-button color="primary" [routerLink]="['/edit', cust.id]">
+          <mat-icon>edit</mat-icon> Update
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>
-<br><br>
-<button (click)="onAdd(mockJsonAdd)">add quick customer</button>

@@ -40,11 +40,13 @@ export class AddCustomerComponent implements OnInit {
 
   addCustomer(data: any) {
     this.customerService.addCustomer(data).subscribe((x) => this.customer.push(x));
+    this.router.navigate(['/']);
   }
 
   updateCustomer(id: any, data: any) {
-    this.customerService.updateCustomer(id, data).subscribe(() => {
-      this.router.navigate(['/']); // Navigate back to the home page after updating
+    this.customerService.updateCustomer(id, data).subscribe((x) => {
+      this.customer = x;
+      this.router.navigate(['/']);
     });
   }
 
@@ -54,9 +56,6 @@ export class AddCustomerComponent implements OnInit {
     }
     else {
       this.updateCustomer(this.activatedRoute.snapshot.url[1].path, data);
-      // this.router.navigate()
-      // testcommit2
-      // testcommit3
     }  
   }
 }

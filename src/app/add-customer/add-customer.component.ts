@@ -40,13 +40,17 @@ export class AddCustomerComponent implements OnInit {
 
   addCustomer(data: any) {
     this.customerService.addCustomer(data).subscribe((x) => this.customer.push(x));
-    this.router.navigate(['/']);
+    setTimeout(() => {
+      this.router.navigate(['/']);
+    }, 500);
   }
 
   updateCustomer(id: any, data: any) {
     this.customerService.updateCustomer(id, data).subscribe((x) => {
       this.customer = x;
-      this.router.navigate(['/']);
+      setTimeout(() => {
+        this.router.navigate(['/']);
+      }, 500);
     });
   }
 
